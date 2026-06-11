@@ -7,39 +7,215 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --orange: #F47C20; --orange-dark: #C45E08; --orange-glow: rgba(244,124,32,0.15);
-    --black: #0D0D0D; --black2: #181818; --black3: #222;
-    --white: #fff; --gray: #aaa;
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
-
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 32px;
-    background: rgba(13,13,13,0.94); backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(244,124,32,0.15);
-  }
-  .nav-logo { display: flex; align-items: center; gap: 10px; }
-  .nav-brand { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800; }
-  .nav-brand span { color: var(--orange); }
-  .nav-cta {
-    background: var(--orange); color: var(--black); border: none;
-    font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800;
-    letter-spacing: 0.06em; padding: 9px 22px; border-radius: 4px;
-    text-transform: uppercase; text-decoration: none; cursor: pointer;
-    transition: background 0.15s, transform 0.1s;
-  }
-  .nav-cta:hover { background: var(--orange-dark); transform: translateY(-1px); }
-
-  .urgency-bar {
-    position: fixed; top: 72px; left: 0; right: 0; z-index: 99;
-    background: var(--orange); color: var(--black);
-    text-align: center; padding: 8px 20px;
-    font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800;
-    letter-spacing: 0.08em; text-transform: uppercase;
-  }
-  .urgency-bar span { opacity: 0.75; font-weight: 700; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--orange:#F47C20;--orange-dark:#C45E08;--orange-glow:rgba(244,124,32,0.15);--black:#0D0D0D;--black2:#181818;--black3:#222;--white:#fff;--gray:#aaa}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 32px;background:rgba(13,13,13,0.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(244,124,32,0.15)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-brand{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800}
+.nav-brand span{color:var(--orange)}
+.nav-cta{background:var(--orange);color:var(--black);border:none;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;letter-spacing:.06em;padding:9px 22px;border-radius:4px;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .15s,transform .1s}
+.nav-cta:hover{background:var(--orange-dark);transform:translateY(-1px)}
+.urgency-bar{position:fixed;top:72px;left:0;right:0;z-index:99;background:var(--orange);color:var(--black);text-align:center;padding:8px 20px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.urgency-bar span{opacity:.75;font-weight:700}
+.hero{min-height:100vh;display:flex;align-items:center;padding:140px 32px 60px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(244,124,32,.11) 0%,transparent 70%);pointer-events:none}
+.hero-stripe{position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--orange)}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 440px;gap:60px;align-items:center}
+.hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--orange);text-transform:uppercase;margin-bottom:16px}
+.hero-headline{font-family:'Barlow Condensed',sans-serif;font-size:clamp(52px,7vw,88px);font-weight:900;line-height:.95;text-transform:uppercase;margin-bottom:24px}
+.hero-headline em{color:var(--orange);font-style:normal}
+.hero-sub{font-size:17px;color:#ccc;line-height:1.65;max-width:480px;margin-bottom:36px}
+.hero-pills{display:flex;flex-wrap:wrap;gap:10px}
+.pill{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border:1px solid var(--orange);border-radius:2px;color:var(--orange)}
+.form-card{background:var(--black2);border:1px solid rgba(244,124,32,.3);border-radius:8px;padding:36px 32px;position:relative}
+.form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--orange);border-radius:8px 8px 0 0}
+.form-title{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+.form-sub{font-size:13px;color:var(--gray);margin-bottom:20px;line-height:1.5}
+.picker-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:10px;display:block}
+.prog-picker{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px}
+.prog-option{border:1.5px solid rgba(255,255,255,.1);border-radius:6px;padding:12px 10px;cursor:pointer;transition:border-color .15s,background .15s;text-align:center;user-select:none;position:relative}
+.prog-option:hover:not(.sold-out){border-color:rgba(244,124,32,.5);background:rgba(244,124,32,.05)}
+.prog-option.selected{border-color:var(--orange);background:rgba(244,124,32,.1)}
+.prog-option.sold-out{opacity:.4;cursor:not-allowed}
+.po-icon{font-size:20px;margin-bottom:4px}
+.po-name{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;line-height:1.2;color:#ccc}
+.prog-option.selected .po-name{color:var(--orange)}
+.po-status{font-size:10px;color:var(--orange);font-weight:600;margin-top:5px}
+.prog-option.sold-out .po-status{color:#e03e3e}
+.soldout-badge{display:none;position:absolute;top:5px;right:5px;background:#e03e3e;color:white;font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:3px}
+.prog-option.sold-out .soldout-badge{display:block}
+.po-check{width:16px;height:16px;border-radius:50%;border:1.5px solid rgba(255,255,255,.2);margin:6px auto 0}
+.prog-option.selected .po-check{background:var(--orange);border-color:var(--orange);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2 5l2.5 2.5L8 3' stroke='%23000' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-size:10px;background-position:center;background-repeat:no-repeat}
+.picker-error{font-size:12px;color:#f87;margin-top:2px;margin-bottom:8px;display:none}
+.form-group{margin-bottom:13px}
+.form-group label{display:block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:6px}
+.form-group input{width:100%;padding:11px 14px;background:var(--black3);border:1px solid rgba(255,255,255,.1);border-radius:4px;color:var(--white);font-family:'Inter',sans-serif;font-size:14px;transition:border-color .15s}
+.form-group input:focus{outline:none;border-color:var(--orange)}
+.form-group input::placeholder{color:#555}
+.terms-wrap{background:rgba(244,124,32,.06);border:1px solid rgba(244,124,32,.2);border-radius:6px;padding:12px 14px;margin-bottom:14px}
+.terms-row{display:flex;align-items:flex-start;gap:10px;cursor:pointer}
+.terms-row input[type="checkbox"]{width:16px;height:16px;min-width:16px;margin-top:2px;accent-color:var(--orange);cursor:pointer}
+.terms-text{font-size:12px;color:#bbb;line-height:1.55}
+.terms-text strong{color:var(--orange)}
+.terms-error{font-size:12px;color:#f87;margin-top:6px;display:none}
+.submit-btn{width:100%;padding:14px;background:var(--orange);color:var(--black);border:none;border-radius:4px;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;transition:background .15s,transform .1s}
+.submit-btn:hover:not(:disabled){background:var(--orange-dark);transform:translateY(-1px)}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.form-note{font-size:11px;color:#555;text-align:center;margin-top:10px;line-height:1.5}
+.error-msg{display:none;background:rgba(220,50,50,.12);border:1px solid rgba(220,50,50,.3);border-radius:4px;padding:10px 14px;font-size:13px;color:#f88;margin-bottom:12px}
+.spinner-wrap{display:none;text-align:center;padding:32px 0}
+.spinner{width:36px;height:36px;border:3px solid rgba(244,124,32,.2);border-top-color:var(--orange);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 14px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner-wrap p{font-size:13px;color:var(--gray)}
+.success-msg{display:none;text-align:center;padding:20px 0}
+.success-icon{font-size:42px;margin-bottom:12px}
+.success-msg h3{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:800;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.success-msg p{font-size:14px;color:#ccc;line-height:1.7}
+.success-program{display:inline-block;margin:12px 0;background:rgba(244,124,32,.1);border:1px solid rgba(244,124,32,.3);border-radius:4px;padding:8px 16px;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;text-transform:uppercase;color:var(--orange)}
+.programs{padding:80px 32px;background:var(--black2);border-top:1px solid rgba(244,124,32,.1)}
+.section-label{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);text-align:center;margin-bottom:12px}
+.section-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(32px,5vw,52px);font-weight:900;text-transform:uppercase;text-align:center;margin-bottom:12px;line-height:1}
+.section-sub{text-align:center;color:#999;font-size:14px;margin-bottom:40px}
+.programs-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.prog-card{background:var(--black3);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:28px 24px;transition:border-color .2s,transform .2s;cursor:pointer;position:relative;overflow:hidden}
+.prog-card:hover:not(.card-soldout){border-color:var(--orange);transform:translateY(-3px)}
+.prog-card.card-soldout{opacity:.45;cursor:default}
+.card-soldout-overlay{display:none;position:absolute;inset:0;background:rgba(13,13,13,.7);align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#e03e3e}
+.prog-card.card-soldout .card-soldout-overlay{display:flex}
+.prog-icon{font-size:28px;margin-bottom:14px}
+.prog-name{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;text-transform:uppercase;margin-bottom:8px;color:var(--orange)}
+.prog-desc{font-size:13px;color:#999;line-height:1.6;margin-bottom:12px}
+.prog-avail{font-size:11px;font-weight:600;color:var(--orange);margin-bottom:12px}
+.prog-tags{display:flex;flex-wrap:wrap;gap:6px}
+.prog-tag{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border:1px solid rgba(244,124,32,.3);border-radius:2px;color:var(--orange)}
+.phase-bar{display:flex;gap:4px;margin-top:16px}
+.phase-pip{flex:1;height:3px;border-radius:2px;background:var(--orange)}
+.how{padding:80px 32px;max-width:900px;margin:0 auto}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px;margin-top:48px}
+.step{text-align:center}
+.step-num{width:52px;height:52px;border-radius:50%;background:var(--orange-glow);border:2px solid var(--orange);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;color:var(--orange)}
+.step h4{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:800;text-transform:uppercase;margin-bottom:8px}
+.step p{font-size:13px;color:#999;line-height:1.6}
+footer{padding:32px;text-align:center;border-top:1px solid rgba(255,255,255,.07);font-size:12px;color:#555}
+footer span{color:var(--orange)}
+@media(max-width:780px){.hero-inner{grid-template-columns:1fr;gap:40px}nav{padding:12px 20px}.hero{padding:130px 20px 48px}.programs,.how{padding:60px 20px}.form-card{padding:28px 20px}.urgency-bar{font-size:12px;top:68px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">
+    <div style="width:44px;height:44px;border-radius:50%;background:#F47C20;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:16px;color:#000">JP</div>
+    <div class="nav-brand">JP <span>FITNESS</span> BELFAST</div>
+  </div>
+  <a href="#get-program" class="nav-cta">Claim Your Spot</a>
+</nav>
+<div class="urgency-bar">🔥 Limited spots — claim yours now &nbsp;<span>| Only 8 free programs per plan</span></div>
+<section class="hero" id="top">
+  <div class="hero-bg"></div><div class="hero-stripe"></div>
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">Coached by JP Fitness Belfast</p>
+      <h1 class="hero-headline">Your Free<br><em>90-Day</em><br>Program</h1>
+      <p class="hero-sub">Four expert programs built for real results. Only 8 free spots per program — once they're gone, they're gone. Pick your goal and claim yours now.</p>
+      <div class="hero-pills">
+        <span class="pill">5 days/week</span><span class="pill">All levels</span><span class="pill">Gym + Home</span><span class="pill">PDF + Tracker</span><span class="pill">8 spots only</span>
+      </div>
+    </div>
+    <div class="form-card" id="get-program">
+      <div id="form-wrap">
+        <h2 class="form-title">Claim Your Spot</h2>
+        <p class="form-sub">Select one program, fill in your details, and it lands in your inbox — free and personalised to you.</p>
+        <span class="picker-label">Choose your program</span>
+        <div class="prog-picker">
+          <div class="prog-option" data-program="Muscle &amp; Strength" onclick="selectProgram(this)"><div class="soldout-badge">Full</div><div class="po-icon">💪</div><div class="po-name">Muscle &amp; Strength</div><div class="po-status" id="pstatus-0">Loading…</div><div class="po-check"></div></div>
+          <div class="prog-option" data-program="Fat Loss &amp; Recomposition" onclick="selectProgram(this)"><div class="soldout-badge">Full</div><div class="po-icon">🔥</div><div class="po-name">Fat Loss &amp; Recomp</div><div class="po-status" id="pstatus-1">Loading…</div><div class="po-check"></div></div>
+          <div class="prog-option" data-program="General Fitness &amp; Health" onclick="selectProgram(this)"><div class="soldout-badge">Full</div><div class="po-icon">🏃</div><div class="po-name">General Fitness</div><div class="po-status" id="pstatus-2">Loading…</div><div class="po-check"></div></div>
+          <div class="prog-option" data-program="Sport &amp; Athletic Performance" onclick="selectProgram(this)"><div class="soldout-badge">Full</div><div class="po-icon">⚡</div><div class="po-name">Sport &amp; Athletic</div><div class="po-status" id="pstatus-3">Loading…</div><div class="po-check"></div></div>
+        </div>
+        <div class="picker-error" id="picker-error">Please select a program to continue.</div>
+        <div class="error-msg" id="error-msg"></div>
+        <form id="signup-form" novalidate>
+          <div class="form-group"><label for="first_name">First name</label><input type="text" id="first_name" placeholder="e.g. John" required></div>
+          <div class="form-group"><label for="last_name">Last name</label><input type="text" id="last_name" placeholder="e.g. Smith" required></div>
+          <div class="form-group"><label for="email">Email address</label><input type="email" id="email" placeholder="you@example.com" required></div>
+          <div class="form-group"><label for="phone">Phone number</label><input type="tel" id="phone" placeholder="+44 7700 000000" required></div>
+          <div class="terms-wrap">
+            <label class="terms-row"><input type="checkbox" id="terms"><span class="terms-text">I agree this program is <strong>for my personal use only</strong>. I will not share, forward, resell, or distribute it. I understand it is <strong>watermarked with my name and email</strong>.</span></label>
+            <div class="terms-error" id="terms-error">You must agree to the terms to receive your program.</div>
+          </div>
+          <button type="submit" class="submit-btn" id="submit-btn">Claim My Free Program →</button>
+        </form>
+        <p class="form-note">No spam. Personal use only. Spots are limited.</p>
+      </div>
+      <div class="spinner-wrap" id="spinner-wrap"><div class="spinner"></div><p>Personalising your program…</p></div>
+      <div class="success-msg" id="success-msg"><div class="success-icon">🎉</div><h3>Spot Claimed!</h3><div class="success-program" id="success-program-name"></div><p>Your personalised program is on its way.<br>Check your inbox — and spam if it doesn't arrive within a few minutes.</p></div>
+    </div>
+  </div>
+</section>
+<section class="programs">
+  <p class="section-label">Choose your path</p>
+  <h2 class="section-title">4 Programs. <em style="color:var(--orange)">8 Free Spots Each.</em></h2>
+  <p class="section-sub">Once the 8 free spots are gone, they're gone. Click a program to claim yours.</p>
+  <div class="programs-grid">
+    <div class="prog-card" id="card-0" onclick="scrollAndSelect('Muscle &amp; Strength')"><div class="card-soldout-overlay">Fully Claimed</div><div class="prog-icon">💪</div><div class="prog-name">Muscle &amp; Strength</div><p class="prog-desc">Progressive overload across 3 phases. Build serious size and raw strength — gym and home options included.</p><div class="prog-avail" id="cavail-0">🔥 Limited spots remaining</div><div class="prog-tags"><span class="prog-tag">Hypertrophy</span><span class="prog-tag">Strength</span><span class="prog-tag">Push/Pull</span></div><div class="phase-bar"><div class="phase-pip"></div><div class="phase-pip"></div><div class="phase-pip"></div></div></div>
+    <div class="prog-card" id="card-1" onclick="scrollAndSelect('Fat Loss &amp; Recomposition')"><div class="card-soldout-overlay">Fully Claimed</div><div class="prog-icon">🔥</div><div class="prog-name">Fat Loss &amp; Recomp</div><p class="prog-desc">Burn fat, preserve muscle, reshape your body. Circuits, supersets, and HIIT ramping each phase.</p><div class="prog-avail" id="cavail-1">🔥 Limited spots remaining</div><div class="prog-tags"><span class="prog-tag">Fat Loss</span><span class="prog-tag">HIIT</span><span class="prog-tag">Metabolic</span></div><div class="phase-bar"><div class="phase-pip"></div><div class="phase-pip"></div><div class="phase-pip"></div></div></div>
+    <div class="prog-card" id="card-2" onclick="scrollAndSelect('General Fitness &amp; Health')"><div class="card-soldout-overlay">Fully Claimed</div><div class="prog-icon">🏃</div><div class="prog-name">General Fitness</div><p class="prog-desc">Balanced strength, cardio, and mobility. For anyone who wants to feel fitter, healthier, and more energetic.</p><div class="prog-avail" id="cavail-2">🔥 Limited spots remaining</div><div class="prog-tags"><span class="prog-tag">Fitness</span><span class="prog-tag">Cardio</span><span class="prog-tag">Mobility</span></div><div class="phase-bar"><div class="phase-pip"></div><div class="phase-pip"></div><div class="phase-pip"></div></div></div>
+    <div class="prog-card" id="card-3" onclick="scrollAndSelect('Sport &amp; Athletic Performance')"><div class="card-soldout-overlay">Fully Claimed</div><div class="prog-icon">⚡</div><div class="prog-name">Sport &amp; Athletic</div><p class="prog-desc">Explosive power, sprint speed, and agility. Designed for athletes and competitors at every level.</p><div class="prog-avail" id="cavail-3">🔥 Limited spots remaining</div><div class="prog-tags"><span class="prog-tag">Power</span><span class="prog-tag">Speed</span><span class="prog-tag">Agility</span></div><div class="phase-bar"><div class="phase-pip"></div><div class="phase-pip"></div><div class="phase-pip"></div></div></div>
+  </div>
+</section>
+<section class="how">
+  <p class="section-label">Simple process</p>
+  <h2 class="section-title" style="text-align:center">How It Works</h2>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><h4>Pick Your Goal</h4><p>Choose the program that matches what you want to achieve — before spots run out.</p></div>
+    <div class="step"><div class="step-num">2</div><h4>Fill the Form</h4><p>Your name, email, and phone. Takes 30 seconds.</p></div>
+    <div class="step"><div class="step-num">3</div><h4>Check Your Inbox</h4><p>A personalised, watermarked PDF and Excel tracker sent straight to your email.</p></div>
+    <div class="step"><div class="step-num">4</div><h4>Start Training</h4><p>Follow the plan and see real results within the first 30 days.</p></div>
+  </div>
+</section>
+<footer><p>© 2025 <span>JP Fitness Belfast</span> — In Person &amp; Online Coaching<br>Programs are for personal use only. Redistribution is not permitted.</p></footer>
+<script>
+  const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
+  const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
+  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+  const PROGRAM_LINKS = {
+    'Muscle & Strength':            {pdf:'YOUR_MUSCLE_PDF_LINK',  excel:'YOUR_MUSCLE_EXCEL_LINK'},
+    'Fat Loss & Recomposition':     {pdf:'YOUR_FATLOSS_PDF_LINK', excel:'YOUR_FATLOSS_EXCEL_LINK'},
+    'General Fitness & Health':     {pdf:'YOUR_FITNESS_PDF_LINK', excel:'YOUR_FITNESS_EXCEL_LINK'},
+    'Sport & Athletic Performance': {pdf:'YOUR_SPORT_PDF_LINK',   excel:'YOUR_SPORT_EXCEL_LINK'}
+  };
+  const PROGRAMS=['Muscle & Strength','Fat Loss & Recomposition','General Fitness & Health','Sport & Athletic Performance'];
+  const MAX_SPOTS=8;
+  let spotsData={},selectedProgram=null;
+  async function loadSpots(){try{const r=await fetch('/api/get-spots');spotsData=await r.json();}catch{PROGRAMS.forEach(p=>{spotsData[p]=spotsData[p]||0;});}updateUI();}
+  function updateUI(){PROGRAMS.forEach((prog,i)=>{const taken=spotsData[prog]||0,isFull=taken>=MAX_SPOTS;const tile=document.querySelector('.prog-option[data-program="'+prog+'"]');const statusEl=document.getElementById('pstatus-'+i);if(tile){tile.classList.toggle('sold-out',isFull);if(isFull)tile.onclick=null;}if(statusEl)statusEl.textContent=isFull?'Fully claimed':'Limited spots — claim yours now';const card=document.getElementById('card-'+i);const availEl=document.getElementById('cavail-'+i);if(card){card.classList.toggle('card-soldout',isFull);if(isFull)card.onclick=null;}if(availEl)availEl.textContent=isFull?'❌ Fully claimed':'🔥 Limited spots remaining';});}
+  function selectProgram(el){if(el.classList.contains('sold-out'))return;document.querySelectorAll('.prog-option').forEach(o=>o.classList.remove('selected'));el.classList.add('selected');selectedProgram=el.dataset.program;document.getElementById('picker-error').style.display='none';}
+  function scrollAndSelect(prog){if((spotsData[prog]||0)>=MAX_SPOTS)return;document.querySelectorAll('.prog-option').forEach(o=>o.classList.toggle('selected',o.dataset.program===prog));selectedProgram=prog;document.getElementById('get-program').scrollIntoView({behavior:'smooth'});}
+  function showState(s){document.getElementById('form-wrap').style.display=s==='form'?'block':'none';document.getElementById('spinner-wrap').style.display=s==='sending'?'block':'none';document.getElementById('success-msg').style.display=s==='success'?'block':'none';}
+  document.getElementById('signup-form').addEventListener('submit',async function(e){
+    e.preventDefault();
+    const errEl=document.getElementById('error-msg'),termsEl=document.getElementById('terms-error');
+    errEl.style.display=termsEl.style.display='none';
+    let valid=true;
+    if(!selectedProgram){document.getElementById('picker-error').style.display='block';document.querySelector('.prog-picker').scrollIntoView({behavior:'smooth',block:'center'});valid=false;}
+    if(!document.getElementById('terms').checked){termsEl.style.display='block';valid=false;}
+    if(!valid)return;
+    const fn=document.getElementById('first_name').value.trim(),ln=document.getElementById('last_name').value.trim(),em=document.getElementById('email').value.trim(),ph=document.getElementById('phone').value.trim();
+    if(!fn||!ln||!em||!ph){errEl.textContent='Please fill in all fields.';errEl.style.display='block';return;}
+    showState('sending');
+    let claimRes;
+    try{const r=await fetch('/api/claim-spot',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({program:selectedProgram})});claimRes=await r.json();}
+    catch{showState('form');errEl.textContent='Connection error — please try again.';errEl.style.display='block';return;}
+    if(!claimRes.success){showState('form');spotsData[selectedProgram]=MAX_SPOTS;updateUI();errEl.textContent='Sorry — that program just became fully claimed. Please choose another.';errEl.style.display='block';return;}
+    try{const links=PROGRAM_LINKS[selectedProgram];const ejs=await import('https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.esm.min.js');ejs.init({publicKey:EMAILJS_PUBLIC_KEY});await ejs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{first_name:fn,last_name:ln,full_name:fn+' '+ln,email:em,phone:ph,program:selectedProgram,download_links:'PDF Guide:\n'+links.pdf+'\n\nExcel Tracker:\n'+links.excel});}catch{}
+    spotsData[selectedProgram]=claimRes.count;updateUI();
+    document.getElementById('success-program-name').textContent=selectedProgram;
+    showState('success');
+  });
+  loadSpots();
+</script>
+</body>
+</html>
