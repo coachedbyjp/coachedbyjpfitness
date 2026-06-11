@@ -4,9 +4,42 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JP Fitness Belfast — Free 90-Day Program</title>
-<meta http-equiv="refresh" content="0; url=https://coachedbyjpfitness.co.uk/free-program-full.html">
-</head>
-<body>
-<p>Loading your program page...</p>
-</body>
-</html>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --orange: #F47C20; --orange-dark: #C45E08; --orange-glow: rgba(244,124,32,0.15);
+    --black: #0D0D0D; --black2: #181818; --black3: #222;
+    --white: #fff; --gray: #aaa;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 32px;
+    background: rgba(13,13,13,0.94); backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(244,124,32,0.15);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; }
+  .nav-brand { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800; }
+  .nav-brand span { color: var(--orange); }
+  .nav-cta {
+    background: var(--orange); color: var(--black); border: none;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800;
+    letter-spacing: 0.06em; padding: 9px 22px; border-radius: 4px;
+    text-transform: uppercase; text-decoration: none; cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .nav-cta:hover { background: var(--orange-dark); transform: translateY(-1px); }
+
+  .urgency-bar {
+    position: fixed; top: 72px; left: 0; right: 0; z-index: 99;
+    background: var(--orange); color: var(--black);
+    text-align: center; padding: 8px 20px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .urgency-bar span { opacity: 0.75; font-weight: 700; }
