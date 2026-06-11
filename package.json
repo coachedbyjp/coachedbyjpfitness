@@ -1,0 +1,9 @@
+{
+  "name": "jpfitness-site",
+  "version": "1.0.0",
+  "description": "JP Fitness Belfast - coachedbyjpfitness.co.uk",
+  "type": "module",
+  "dependencies": {
+    "@netlify/blobs": "^7.0.0"
+  }
+}
